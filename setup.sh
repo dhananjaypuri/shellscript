@@ -1,7 +1,6 @@
 #!/bin/bash
-##hello-world-0.0.1-SNAPSHOT.war
-## Check if the user is root user ####
 
+#### Function to install package ####
 function install_pkg {
     pkgName=${1}
     echo "Installing ${pkgName}";
@@ -15,6 +14,7 @@ function install_pkg {
     fi
 }
 
+#### Function to check if target folder is present ####
 function check_target_folder {
     if [[ -d target/ ]]
     then
@@ -22,6 +22,8 @@ function check_target_folder {
         rm -rf target > /dev/null 
     fi
 }
+
+#### Function to Run mvn commands ####
 
 function execute_mvn_command {
     command=${1}
@@ -35,6 +37,8 @@ function execute_mvn_command {
     fi
 }
 
+#### Function to Copy artifact  ####
+
 function copy_artifact {
     if cp -rvf target/hello-world-0.0.1-SNAPSHOT.war /var/lib/tomcat9/webapps/app.war
     then
@@ -44,6 +48,8 @@ function copy_artifact {
         echo "Error Artifact cannot be copied !!!!"
     fi
 }
+
+## Check if the user is root user ####
 
 if [[ ${UID} -eq 0 ]]
 then
