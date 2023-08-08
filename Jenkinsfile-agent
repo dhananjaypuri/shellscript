@@ -20,7 +20,7 @@ pipeline {
 
             steps {
                 echo "Code Build Stage"
-                sh 'mvn --version'
+                sh 'mvn install'
             }
         }
         stage('Code Push'){
@@ -28,6 +28,9 @@ pipeline {
             steps {
                 echo "Code Push Stage"
                 sh 'git --version'
+                sh '''
+                ls
+                '''
             }
         }
 
