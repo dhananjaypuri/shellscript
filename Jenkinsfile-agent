@@ -13,6 +13,7 @@ pipeline {
 
             steps {
                 echo "Code Checkout Stage"
+                sh 'ls'
             }
         }
         stage('Build'){
