@@ -30,6 +30,8 @@ pipeline {
                 sh 'git --version'
                 sh '''
                 ls
+                ls target/
+                
                 '''
             }
         }
